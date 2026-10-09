@@ -8,6 +8,21 @@ public class Pilha <E> {
 
     //EXERCICIO 1
     public Pilha (E elementos[]){
+        if(elementos==null || elementos.length==0){
+            return;
+        }
+
+        for(int i = 0; i < elementos.length; i++){
+            Pilha.getProx = elementos[i];
+            fundo = elementos.getProx();
+        }
+
+    }
+
+    //EXERCICIO 2
+    public E empilhaPilha (E elementos[]){
+        if(elementos==null || elementos.length==0)return Pilha<E>;
+
 
     }
 
@@ -24,7 +39,15 @@ public class Pilha <E> {
     }
 
     public E consultarTopo(){
+        if (topo == null){
+            return null;
+        }
 
+        Celula<E> temp = new Celula<>();
+
+        temp = topo;
+
+        return temp;
     }
 
 
