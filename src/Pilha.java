@@ -8,20 +8,28 @@ public class Pilha <E> {
 
     //EXERCICIO 1
     public Pilha (E[] elementos){
-        if(elementos==null || elementos.length==0){
+        if(elementos==null || elementos.length==0){ //Verifica se é nulo e retorna
             return;
         }
-
-        for(int i = 0; i < elementos.length; i++){
-            Pilha.getProx = elementos[i];
+        for(E elemento: elementos){ /*
+                                     Percorre o vetor ate o fim fazendo o FILO
+                                     */
+            empilhar(elemento);
+        }
 
         }
 
     }
 
     //EXERCICIO 2
-    public void empilhaPilha (E[] elementos){
+    public void empilhaPilha (E[] elementos) {
+        if (elementos == null || elementos.length == 0) {
+            throw new RuntimeException(); //Verifica se o vetor é nulo
+        }
+        for (int i = 0; i < elementos.length; i++) { //percorre o vetor
+            empilhar(elementos[i]); //chama a função para empilhar o item
 
+        }
     }
 
     public boolean vazia(){
@@ -42,6 +50,28 @@ public class Pilha <E> {
 
     }
 
+    public void imprimir(){
+        Celula <E> aux = topo; // variavel auxiliar para percorrer a pilha
+
+        while(aux != fundo){ //Para ao chegar no sentinela
+            System.out.println(aux.getItem());
+            aux = aux.getProximo(); //Decresce a celula
+
+        }
+
+    public void ordenarOrdemIsercao(){ //publico do da a partida
+            imprimirRec(topo); //começa pelo todo
+        }
+
+    private void imprimirRec(Celula<E> atual){//recebe a atual
+        if(atual != fundo){
+            aux = imprimirRec(atual.getProximo());//Primeiro desce ate o fundo depois imprime
+            System.out.println(aux.getItem());
+        }
+
+
+        }
+
     public E desempilhar(){
 
     }
@@ -59,4 +89,7 @@ public class Pilha <E> {
     }
 
 
+}
+
+void main() {
 }
