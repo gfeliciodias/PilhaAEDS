@@ -49,29 +49,61 @@ public class Pilha <E> {
 
 
     }
+    //EXERCICIO 3
+    public void imprimir() {
+        Celula<E> aux = topo; // variavel auxiliar para percorrer a pilha
 
-    public void imprimir(){
-        Celula <E> aux = topo; // variavel auxiliar para percorrer a pilha
-
-        while(aux != fundo){ //Para ao chegar no sentinela
+        while (aux != fundo) { //Para ao chegar no sentinela
             System.out.println(aux.getItem());
             aux = aux.getProximo(); //Decresce a celula
 
         }
+    }
 
+    //EXERCICIO 4
     public void ordenarOrdemIsercao(){ //publico do da a partida
             imprimirRec(topo); //começa pelo todo
-        }
+    }
 
     private void imprimirRec(Celula<E> atual){//recebe a atual
         if(atual != fundo){
             aux = imprimirRec(atual.getProximo());//Primeiro desce ate o fundo depois imprime
             System.out.println(aux.getItem());
         }
+    }
 
+    //EXERCICIO 5
+    public E empilharPilhas(Pilha<E> outra){
+        Pilha<E> invertida = new Pilha<>();//Pilha nova que será devolvida
 
+        Celula<E> aux = outra.topo; //Percorre a recebida do topo ao fundo
+
+        while(aux != outra.fundo) {
+            invertida.empilhar(aux.getItem()); //Empilha o topo do recebido na pilha invertida
+
+            aux = aux.getProximo(); //Pega o proximo item da pilha
         }
 
+        return invertida; //retorna a inversa e a Recebida está intacta
+    }
+
+    //EXERCICIO 6
+    public E atualInvertido(Pilha <E> atual) {
+        Pilha <E> invertida = new Pilha<>(); //Nova pilha
+        Celula aux = atual.topo;
+
+        while(aux != atual.fundo) {
+            invertida.empilhar(aux.getItem()); //Insere o item topo da recebida
+
+            aux = aux.getProximo();//Aux pega o proximo item
+        }
+        return invertida;
+    }
+    /*
+        Outro modo de fazer
+     *  public Pilha<E> obterInvertida(){
+     *      return inverterPilha(this); //"This" = a propria pilha do exercicio 5
+     */
     public E desempilhar(){
 
     }
@@ -89,7 +121,4 @@ public class Pilha <E> {
     }
 
 
-}
-
-void main() {
 }
